@@ -1,0 +1,43 @@
+.popups{
+   background-color:white;
+   border: solid 0.3px;
+   width: 400px;
+   height: 200px;
+   border-radius: 20px;
+}
+.PopoverContent{
+max-height: 70vh !important;
+  overflow: auto;
+  margin-bottom: -40px;
+  display: flex;
+  flex-direction: row; 
+  
+}
+.buttonpop{
+    display: flex;
+    margin-top: 10px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.btnProdutos{
+    display: flex;
+    width: 200px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 100px;
+    font-size: 15px;
+    font-weight: bold;
+    color:white;
+    background-color: darkblue;
+    margin-top: 100px;
+}
+.segments{
+    text-align: center;
+   font-size: 20px;
+   
+    
+}
