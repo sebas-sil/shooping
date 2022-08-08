@@ -44,7 +44,7 @@ const ProductCard: React.FC<{
             </Card.Content>
             <Card.Content extra textAlign="center">
              <Button.Group>
-             <Popup trigger={btnAdd} content="Adicionar ao carrinho" hideOnScroll />
+             <Popup trigger={btnAdd} content="Add ao carrinho" hideOnScroll />
              <Popup trigger={btnView} content="Ver mais" hideOnScroll />
              </Button.Group>
              </Card.Content>

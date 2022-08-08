@@ -2,20 +2,19 @@ import React, { Fragment, useContext, useEffect, useState } from 'react';
 import Helmet from 'react-helmet';
 import { RouteProps } from 'react-router-dom';
 import { Header, Segment } from 'semantic-ui-react';
-import CartContext from '../../Context/CardContext/CartContext';
-import CartContextManager from '../../Context/CardContext/CardContextManager';
 import GridProucts from '../../Components/Grid/Grid';
 import ModalProduct from '../../Components/Modal/Modal';
 import ProductCard from '../../Components/ProductCad/ProductCard';
 import Product from './Products';
 import ProductsService from './ProductsService';
 import './styles.css'
+import { useCard } from '../../Context/CardContext/CartContext';
 const Home:React.FC<RouteProps> = () =>{
     const [products, setProducts] = useState <Product[]>([])
     const [isLoadding, setIsLoadding] = useState(false)
     const [showModal, setShowModal] = useState (false)
     const [productToShow, setProductToShow] = useState<Product>()
-    const {addItem, hasInTheCart} = useContext <CartContextManager>(CartContext)
+    const {addItem, hasInTheCart} = useCard()
     
     useEffect(()=>{
         setIsLoadding(true)
@@ -37,7 +36,7 @@ const Home:React.FC<RouteProps> = () =>{
         </Helmet>
         {productToShow &&(
             <ModalProduct
-            isInTheCart={hasInTheCart(productToShow)}
+            isInTheCart={hasInTheCart(productToShow.id)}
             onClose ={closeModal}
             product={productToShow}
             onAdd ={()=> addItem(productToShow)}
@@ -61,7 +60,7 @@ const Home:React.FC<RouteProps> = () =>{
             }}
             onAddtoCart={addItem}
             product={product}
-            hasInTheCart={hasInTheCart(product)}
+            hasInTheCart={hasInTheCart(product.id!)}
           />
         )}
       />

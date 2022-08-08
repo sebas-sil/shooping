@@ -1,13 +1,12 @@
 import React,{Fragment, useContext, useMemo, useState} from "react";
 import {Link} from 'react-router-dom'
-import CartContext from "../../Context/CardContext/CartContext";
 import ButtonRemoveItem from "../ButtonRemove/ButtonRemoveItem";
-import CartContextManager from "../../Context/CardContext/CardContextManager";
 import { Button, Icon, Image, Label, List, Popup, Segment } from "semantic-ui-react";
 import './styles.css'
 import { FiShoppingCart,FiArrowRight, FiArrowLeft, FiChevronDown,FiChevronUp } from "react-icons/fi";
+import { useCard } from '../../Context/CardContext/CartContext';
 const PopoverCart: React.FC =() =>{
-    const{ products, removeItem} = useContext<CartContextManager>(CartContext)
+    const{ products, removeItem} = useCard()
     const [isOpen, setIsOpen] = useState(false)
     const haveProducts = products.length>0
     const totalCartValue = haveProducts ? products

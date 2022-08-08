@@ -2,13 +2,13 @@
 import React, { useReducer } from 'react';
 import Footer from './Components/Layout/Footer';
 import Navbar from './Components/Layout/Navbar';
-import CartContext from './Context/CardContext/CartContext';
 import Product from './Pages/Home/Products';
 import cartReducer from './Context/reducer/CartReducer';
 import TYPES from './Context/reducer/types';
 import Router from './Routes';
 import './App.css';
 import CartStorage from './service/CartStorage';
+import { CardProvider } from './Context/CardContext/CartContext';
 
 const InitialValues = {
   products:CartStorage.getProductsCart()
@@ -30,20 +30,11 @@ const App: React.FC = () => {
   }
   return (
   <div className='app'>
-    <CartContext.Provider 
-    value={{
-      clearCart,
-      products:state.products,
-      removeItem,
-      addItem,
-      hasInTheCart,
-    
-    }}
-    >
+    <CardProvider>
       <Navbar/>
      <Router/>
      <Footer/>
-    </CartContext.Provider>
+    </CardProvider>
 
   </div>
   );

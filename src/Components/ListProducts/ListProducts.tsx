@@ -1,10 +1,10 @@
 import React, {useContext} from "react"
 import { List } from "semantic-ui-react"
-import CartContext from "../../Context/CardContext/CartContext"
+import { useCard } from '../../Context/CardContext/CartContext'
 import ItemProductsCart from '../ItemProductsCart/ItemProductsCart'
 
 const ListProductsCart : React.FC =() =>{
-    const {products, removeItem} = useContext(CartContext)
+    const {products, removeItem} = useCard()
     return(
         <List size='massive' divided verticalAlign='middle'>
             {products.map((product, index : number)=>(

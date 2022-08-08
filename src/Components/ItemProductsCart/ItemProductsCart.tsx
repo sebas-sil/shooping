@@ -5,7 +5,7 @@ import ButtonRemoveItem from '../ButtonRemove/ButtonRemoveItem'
 
 const ItemProductCart : React.FC <{
     product: Product
-    removeItem:(id?:String)=>void
+    removeItem:(id:String)=>void
 }> =({product, removeItem}) =>{
     return(
         <List.Item>

@@ -1,6 +1,6 @@
 export default interface Product {
     imageUrl: any
-    id? :String
+    id :String
     title: String
     ImgUrl?:String
     price:number
